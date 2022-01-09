@@ -9,27 +9,27 @@ const channels = [
   'noobs2ninjas',
 ]
 
-function getData({ stream }) {
-  console.log(stream)
-  return stream
+function getData(data) {
+  console.log(data)
+  return data
 }
 
-// function makeURL(type, name) {
-//   return 'https://twitch-proxy.freecodecamp.rocks/twitch-api/' + type + '/' + name + '?callback=getStream'
-// }
+function makeURL(type, name) {
+  return 'https://twitch-proxy.freecodecamp.rocks/twitch-api/' + type + '/' + name + '?callback=getData'
+}
 
-let script = document.createElement('script')
-script.src = `https://twitch-proxy.freecodecamp.rocks/twitch-api/streams/${channels[0]}?callback=getData`
-document.body.append(script)
+// let script = document.createElement('script')
+// script.src = `https://twitch-proxy.freecodecamp.rocks/twitch-api/channels/${channels[0]}?callback=getData`
+// document.body.append(script)
 
-// const getStreams = (user) => {
-//   const streamsURL = makeURL('streams', user)
-//   fetch(streamsURL).then((response) => console.log(response))
-//   // .then((data) => console.log(data))
-//   // .catch((e) => console.log(e))
-// }
+const getStreams = async (channel) => {
+  const streamsURL = makeURL('streams', channel)
+  let response = await fetch(streamsURL)
+  let json = await response.json()
+  console.log(json)
+}
 
-// getStreams(channels[0])
+getStreams(channels[0])
 
 /*
 

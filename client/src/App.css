@@ -1,0 +1,27 @@
+.App {
+  background-color: blue;
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.headline {
+  font-size: xx-large;
+  font-weight: 900;
+  padding: 15px 20px 20px;
+  background-color: gray;
+  margin-bottom: 5px;
+}
+
+.channel {
+  border-top: 1px solid black;
+  padding: 20px 10px;
+  font-weight: 600;
+  font-style: italic;
+  background-color: rgb(104, 104, 104);
+}
+
+.online {
+  font-style: normal;
+  background-color: green;
+}

@@ -1,3 +1,7 @@
+const { default: axios } = require('axios')
+
+require('dotenv').config()
+
 const channels = [
   'ESL_SC2',
   'OgamingSC2',
@@ -15,25 +19,14 @@ function getData(data) {
 }
 
 function makeURL(type, name) {
-  return 'https://twitch-proxy.freecodecamp.rocks/twitch-api/' + type + '/' + name + '?callback=getData'
+  return process.env.BASE_URL + '/' + type + '?user_name=' + name
 }
-
-// let script = document.createElement('script')
-// script.src = `https://twitch-proxy.freecodecamp.rocks/twitch-api/channels/${channels[0]}?callback=getData`
-// document.body.append(script)
 
 const getStreams = async (channel) => {
   const streamsURL = makeURL('streams', channel)
-  let response = await fetch(streamsURL)
+  let response = await axios.get(streamsURL)
   let json = await response.json()
   console.log(json)
 }
 
 getStreams(channels[0])
-
-/*
-
-    function makeURL(type, name) {
-      return 'https://twitch-proxy.freecodecamp.rocks/twitch-api/' + type + '/' + name + '?callback=?';
-    };
-*/

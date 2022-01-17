@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "## Take Home Projects",
   "main": "server.js",
+  "engines": {
+    "node": "16.3.2"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,7 +13,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.24.0",
+    "body-parser": "^1.19.1",
     "dotenv": "^10.0.0",
-    "request": "^2.88.2"
-  }
+    "express": "^4.17.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.1.6",
+    "request": "^2.88.2",
+    "twitch": "^4.6.7",
+    "twitch-auth": "^4.6.7"
+  },
+  "type": "module"
 }

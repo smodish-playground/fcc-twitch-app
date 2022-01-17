@@ -24,15 +24,31 @@ const DisplayChannel = ({ channel }) => {
     const data = await isStreamLive(channel)
     if (!data) return
     setIsOnline(true)
-    setStream(data.gameName)
+    setStream(data)
   }, [])
+
+  const userLink = 'https://twitch.tv/' + channel
+
+  console.log(stream)
 
   return isOnline ? (
     <div className='channel online'>
-      {channel} - {stream}
+      <a href={userLink} target='_blank'>
+        {stream.userName}
+      </a>
+      <br />
+      {stream.gameName}
+      <br />
+      {stream.title}
     </div>
   ) : (
-    <div className='channel'>{channel}</div>
+    <div className='channel'>
+      <a href={userLink} target='_blank'>
+        {channel}
+      </a>
+      <br />
+      Offline
+    </div>
   )
 }
 
